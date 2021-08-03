@@ -44,6 +44,8 @@ export default function UserList() {
     })
 
     return users;
+  }, {
+    staleTime: 1000 * 5, // 5 seconds
   });
 
   const isWideVersion = useBreakpointValue({
@@ -78,11 +80,11 @@ export default function UserList() {
           </Flex>
 
           {isLoading ? (
-            <Flex justfy="center">
+            <Flex justify="center">
               <Spinner />
             </Flex>
           ) : error ? (
-            <Flex justfy="center">
+            <Flex justify="center">
               <Text>Falha ao obter dados dos usuários.</Text>
             </Flex>
           ) : (
